@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Link from "next/link";
+import { register } from "@/action/user";
 
 const Register = async () => {
   return (
@@ -20,7 +21,8 @@ const Register = async () => {
       <h1 className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
         Please provide all necessary information to create an account.
       </h1>
-      <form className="my-8">
+
+      <form className="my-8" action={register}>
         <div className="flex flex-col md:flex-row items-start mb-4 gap-2">
           <div className="flex flex-col gap-2">
             <Label>First Name</Label>
@@ -59,16 +61,16 @@ const Register = async () => {
           placeholder="************"
         />
 
-        <Label htmlFor="password">Confirm Password</Label>
+        {/* <Label htmlFor="password">Confirm Password</Label>
         <Input
           type="password"
           id="confirmpassword"
           name="confirmpassword"
           placeholder="************"
-        />
+        /> */}
 
-        <Label htmlFor="account-type">Account Type</Label>
-        <Select>
+        <Label htmlFor="role">Account Type</Label>
+        <Select name="role">
           <SelectTrigger className="w-full">
             <SelectValue placeholder="Select an account type" />
           </SelectTrigger>
